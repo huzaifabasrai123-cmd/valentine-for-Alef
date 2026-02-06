@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alefiya ❤️ Huzaifa</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom right, #ffd1dc, #ffeaf0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.20);
+      max-width: 520px;
+      width: 90%;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #e60050;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #444;
+      margin: 12px 0;
+    }
+
+    .photo {
+      width: 90%;
+      max-width: 380px;
+      border-radius: 20px;
+      margin: 18px auto;
+      display: block;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    button {
+      margin: 18px 10px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background: #e60050;
+      color: white;
+      font-weight: bold;
+    }
+
+    .yes:hover {
+      background: #b30040;
+      transform: scale(1.06);
+    }
+
+    .no {
+      background: #eee;
+      color: #333;
+      position: absolute;
+      font-weight: bold;
+    }
+
+    #message {
+      margin-top: 18px;
+      font-size: 1.3rem;
+      color: #e60050;
+      font-weight: bold;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      animation: floatUp 5s linear infinite;
+      opacity: 0.85;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-10vh); }
+    }
+
+    iframe {
+      margin-top: 15px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Alefiya ❤️</h1>
+
+    <!-- ✅ PHOTO -->
+    <img src="photo.jpeg" class="photo" alt="Alefiya and Huzaifa">
+
+    <p><b>From Huzaifa 💌</b></p>
+
+    <p>
+      Alefiya, you are the most beautiful part of my life.<br>
+      Every moment with you feels like love.
+    </p>
+
+    <p style="font-size: 1.3rem;">
+      Will you be my Valentine? 💘
+    </p>
+
+    <!-- Buttons -->
+    <button class="yes" onclick="sayYes()">Yes 💞</button>
+    <button class="no" id="noBtn">No 🙈</button>
+
+    <div id="message"></div>
+
+    <!-- ✅ MUSIC PLAYER -->
+    <p style="margin-top:20px;">
+      🎶 Tap Play for our song: <b>Tere Hawaale</b>
+    </p>
+
+    <iframe width="320" height="180"
+      src="https://www.youtube.com/embed/Z0VbANbyH2o"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    /* Floating Hearts */
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 4500);
+    }
+
+    setInterval(createHeart, 300);
+
+    /* YES Button Message */
+    function sayYes() {
+      document.getElementById("message").innerHTML =
+        "YAYYY 😍💖 Alefiya, I love you forever! Happy Valentine’s Day ❤️";
+    }
+
+    /* NO Button Runs Away */
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 140);
+      const y = Math.random() * (window.innerHeight - 80);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+  </script>
+
+</body>
+</html>
